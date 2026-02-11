@@ -29,5 +29,4 @@ export class ApodService {
     }
     return this.http.get(url)
   }
-
 }
