@@ -12,7 +12,6 @@ export class NasaService {
   private _apodObj: any
 
   private readonly BASE_URL = 'https://api.nasa.gov/planetary/apod'
-  private readonly BASE_URL_NEOWS = 'https://api.nasa.gov/neo/rest/v1/feed'
   private readonly API_KEY = 'cVph8gPE7WETxZDeMeaVIR9wa9NmSL94gupFghmZ'
 
   constructor(private http: HttpClient) { }
@@ -47,7 +46,7 @@ export class NasaService {
       let clonDate: Date = new Date(currentDate);
       // Se restan dias con el numero random
       clonDate.setDate(clonDate.getDate()- numberRamdom);
-
+      
     /**
      * Paso 3
      * petición APOD endpoint
@@ -72,7 +71,7 @@ export class NasaService {
         // Lo que se ejecuta cuando llegan datos al observable
         next: (respuesta: any) =>{
             this._apodObj = respuesta // asignacion real
-            console.log("Datos APOD recibidos", this._apodObj)
+            console.log("APOD Consumido", this._apodObj)
         },
         error: (err )=>{
           console.error("Error al consumir APOD", err);
